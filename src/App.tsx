@@ -1,22 +1,39 @@
+import { Button } from "@chakra-ui/react";
 import { useState } from "react";
 
 function App() {
-  const [name, setName] = useState("");
+  const [inputName, setInputName] = useState("");
   const [listFeedback, setListFeedback] = useState(["yoyo"]);
 
+  const addSubmit = () => {
+    if (inputName.trim() !== "") {
+      setListFeedback([...listFeedback, inputName]);
+    }
+  };
+
   const handleNameInput = (event) => {
-    setName(event.target.value);
+    setInputName(event.target.value);
+  };
+
+  const handleSubmit = (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+    addSubmit();
   };
 
   return (
-    <form onSubmit="submit">
+    <form onSubmit={handleSubmit}>
       <div>
         <div>Tilbakemelding</div>
-        <input value={name} onChange={handleNameInput} />
+        <input value={inputName} onChange={handleNameInput} />
+        <div>
+          <Button colorScheme="blue" size="xs" type="submit">
+            yoyo
+          </Button>
+        </div>
       </div>
       <div>
-        {listFeedback.map((feedback) => (
-          <ul>
+        {listFeedback.map((feedback, index) => (
+          <ul key={index}>
             <li>{feedback}</li>
           </ul>
         ))}

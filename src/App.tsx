@@ -12,13 +12,24 @@ import {
 import { useState } from "react";
 
 function App() {
+  // inputs
   const [inputName, setInputName] = useState("");
-  const [listFeedback, setListFeedback] = useState(["yoyo"]);
+  const [inputEmail, setInputEmail] = useState("");
+  const [listFeedback, setListFeedback] = useState<FeedBack[]>([]);
 
   const addSubmit = () => {
     if (inputName.trim() !== "") {
-      setListFeedback([...listFeedback, inputName]);
+      const newSubmit = {
+        name: inputName,
+        email: inputEmail,
+      };
+      setListFeedback([...listFeedback, newSubmit]);
     }
+  };
+
+  //handle inputs
+  const handleEmailInput = (event) => {
+    setInputEmail(event.target.value);
   };
 
   const handleNameInput = (event) => {
@@ -35,6 +46,8 @@ function App() {
       <div>
         <div>Navn</div>
         <input value={inputName} onChange={handleNameInput} />
+        <div>Epost</div>
+        <input value={inputEmail} onChange={handleEmailInput} />
         <div>
           <Button colorScheme="blue" size="xs" type="submit">
             Submit
@@ -44,16 +57,21 @@ function App() {
       <div>
         <TableContainer>
           <Table variant="striped" colorScheme="teal">
+            <TableCaption placement="top">Submissions</TableCaption>
             <Thead>
               <Tr>
-                <Th>Submissions</Th>
+                <Th>Name</Th>
+                <Th>Email</Th>
               </Tr>
             </Thead>
             <Tbody>
               {listFeedback.map((feedback, index) => (
                 <Tr key={index}>
-                  <Td>{feedback}</Td>
-                  <Td isNumeric>{index + 1}</Td>
+                  <Td>{feedback.name}</Td>
+                  <Td>{feedback.email}</Td>
+                  <Td isNumeric>
+                    <Button>Edit</Button>
+                  </Td>
                 </Tr>
               ))}
             </Tbody>

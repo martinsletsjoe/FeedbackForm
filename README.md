@@ -1,7 +1,7 @@
 # Feedback form
 
 ## Forside
-![image](https://github.com/martinsletsjoe/FeedbackForm/assets/106916526/2eb6a061-a851-45c4-893f-f4c145548b19)
+![image](https://github.com/martinsletsjoe/FeedbackForm/assets/106916526/622b9668-beab-44a3-a4b2-dda3d277eb17)
 ## Oversikt
 ![image](https://github.com/martinsletsjoe/FeedbackForm/assets/106916526/302db6fb-fe83-445a-b00d-697909bbddef)
 ## Redigering

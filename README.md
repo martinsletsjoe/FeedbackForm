@@ -14,3 +14,4 @@ Simple feedback form with editing and email validation using regex
 ## Tech
 * React
 * Typescript
+* Vite

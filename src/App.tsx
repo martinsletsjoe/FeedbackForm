@@ -1,5 +1,6 @@
 import { Button, Input } from "@chakra-ui/react";
 import React, { useState } from "react";
+// import "./global.css";
 
 enum FormState {
   SubmissionForm,
@@ -131,7 +132,7 @@ function App() {
             value={inputName}
             onChange={handleNameInput}
           />
-          <div>Epost addresse</div>
+          <div>E-post addresse</div>
           <Input
             type="text"
             placeholder="Epost"
@@ -148,7 +149,7 @@ function App() {
           <Button type="submit" mx={3}>
             Send inn
           </Button>
-          <Button onClick={reset}>Reset</Button>
+          {/* <Button onClick={reset}>Reset</Button> */}
         </form>
       )}
       {currentFormState === FormState.EditForm && (
@@ -160,7 +161,7 @@ function App() {
             value={editName}
             onChange={(e) => setEditName(e.target.value)}
           />
-          <div>Epost addresse</div>
+          <div>E-post addresse</div>
           <Input
             type="text"
             placeholder="Epost"
@@ -189,7 +190,7 @@ function App() {
               <ul key={form.id}>
                 <li>
                   <div>Navn: {form.name}</div>
-                  <div>Epost: {form.email}</div>
+                  <div>E-post: {form.email}</div>
                   <div>Text: {form.text}</div>
                   <Button onClick={() => editFeedback(form.id)}>Rediger</Button>
                 </li>
